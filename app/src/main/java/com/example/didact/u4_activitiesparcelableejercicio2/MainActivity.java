@@ -1,12 +1,16 @@
 package com.example.didact.u4_activitiesparcelableejercicio2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    static final String EXTRA_OPINION="OPINION";
 
     EditText etNombre, etOpinion;
     Spinner spValoracion;
@@ -24,4 +28,31 @@ public class MainActivity extends AppCompatActivity {
         spValoracion.setAdapter(adaptador);
 
     }
+
+    public void clickOpinion(View view){
+
+        String nombre = etNombre.getText().toString();
+        String opinion = etOpinion.getText().toString();
+        String valoracion = spValoracion.getSelectedItem().toString();
+
+        if (nombre.equals("") || opinion.equals("") || valoracion.equals("")){
+
+            Toast.makeText(getApplicationContext(),"Debes rellenar todos los campos",
+                    Toast.LENGTH_LONG).show();
+
+        }else{
+
+            Opinion opinionenviada = new Opinion(nombre, valoracion, opinion);
+
+            Intent i=new Intent(getApplicationContext(),OpinionActivity.class);
+
+            i.putExtra(EXTRA_OPINION, opinionenviada);
+
+            startActivity(i);
+
+        }
+
+    }
+
+
 }

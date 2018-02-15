@@ -10,7 +10,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/d150"
+        android:background="@drawable/cabecera"
         android:orientation="horizontal"></LinearLayout>
 
     <TextView
@@ -18,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Restaurante"
-        android:textSize="30sp" />
+        android:textSize="@dimen/s30" />
 
     <EditText
         android:id="@+id/resetNombre"
@@ -45,11 +46,12 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Opinión"
-        android:inputType="textPersonName" />
+        android:inputType="textMultiLine|textPersonName" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="clickOpinion"
         android:text="Ver" />
 </LinearLayout>
